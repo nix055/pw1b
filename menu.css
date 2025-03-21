@@ -1,0 +1,26 @@
+.menu{
+    border: 1px;
+    background-color: rgb(2, 43, 80);
+    display: flex;
+    list-style: none;
+}
+.item-menu{
+   padding: 10px 20px;
+   transition: opacity 1.0s;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.item-menu:hover{
+    /*opacity: 0.7;*/
+    background-color: rgb(1, 79, 148);
+
+}
+
+.link-item-menu{
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0px 15px;
+ 
+}
