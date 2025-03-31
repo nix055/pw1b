@@ -2,13 +2,13 @@
      margin: 0;
      padding: 0;
      height: 100%;
-     background-color: rgb(255, 255, 255);
+     background-color: #87bafd;
  }
 
   .container{
       width: 80%;
       height: 100%;
-      background-color: #9dc6fc;
+      background-color: #87bafd;
       margin: 0 auto; /*alinhamento*/
       display: grid;
       grid-template-columns: 75% 25%;
@@ -39,3 +39,30 @@
     background-color: #fd87a5;
     grid-area: rodape;
   }
+
+  .menu{
+    border: 1px;
+    background-color: rgb(2, 43, 80);
+    display: flex;
+    list-style: none;
+}
+.item-menu{
+   padding: 10px 20px;
+   transition: opacity 1.0s;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.item-menu:hover{
+    /*opacity: 0.7;*/
+    background-color: rgb(1, 79, 148);
+
+}
+
+.link-item-menu{
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0px 15px;
+ 
+}
