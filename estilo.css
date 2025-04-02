@@ -6,8 +6,7 @@ div{
 
 .card{
     width: 250px;
-
-
+    padding: 10px 25px;
 }
 
 .img-card{
@@ -42,6 +41,5 @@ div{
 
 .fundo{
     background-color: #ffffff;
-
 }
 
