@@ -24,3 +24,14 @@
     padding: 0px 15px;
  
 }
+
+h1{
+    background-color: rgb(2, 43, 80);
+    color: aliceblue;
+    font-weight: bold ;
+}
+
+body, html{
+    background-color: rgb(175, 175, 248);
+
+}

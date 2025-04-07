@@ -1,62 +1,66 @@
 body, html{
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #87bafd;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #dadada;
 }
 
 
-  .menu{
-    border: 1px;
-    background-color: rgb(2, 43, 80);
-    display: flex;
-    list-style: none;
+.menu{
+  border: 1px;
+  background-color: rgb(2, 43, 80);
+  display: flex;
+  list-style: none;
 }
 .item-menu{
-   padding: 10px 25px;
-   transition: opacity 1.0s;
-   padding-top: 10px;
-   padding-bottom: 10px;
+ padding: 10px 25px;
+ transition: opacity 1.0s;
+ padding-top: 10px;
+ padding-bottom: 10px;
 }
 
 .item-menu:hover{
-    /*opacity: 0.7;*/
-    background-color: rgb(1, 79, 148);
+  /*opacity: 0.7;*/
+  background-color: rgb(1, 79, 148);
 
 }
 
 .link-item-menu{
-    color: aliceblue;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0px 15px;
- 
+  color: aliceblue;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0px 15px;
+
 }
 
 .container{
-    width: 80%;
-    height: 100%;
-    background-color: #727f81;
-    margin: 0 auto; /*alinhamento*/
-    display: grid;
-    grid-template-columns: 75% 25%;
-    grid-template-rows: 100px auto;
-    grid-template-areas: "cabecalho cabecalho"
-                         "secao secao"
-                        
+  width: 80%;
+  height: 100%;
+  padding-top: 10px;
+  margin: 0 auto; /*alinhamento*/
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 100px auto;
+  grid-template-areas: "cabecalho cabecalho"
+                       "secao secao"
+                      
 }
 
 header{
-    background-color: #87bafd;
-    grid-area: cabecalho;
-  }
+  background-color: #8f7bff;
+  grid-area: cabecalho;
+}
 
 main{
-    background-color: #9987fd;
-    grid-area: secao;
-    display: flex;
-    flex-wrap: wrap;
-    color: aliceblue;
-    font-weight: bold;
-    text-decoration: none;
-  }
+  background-color: #9987fd;
+  grid-area: secao;
+  flex-wrap: wrap;
+  color: aliceblue;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.it{
+  background-color: #8f7bff;
+}

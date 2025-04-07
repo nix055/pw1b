@@ -23,7 +23,7 @@ div{
 .preco-card{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: bold;
-    color: #ff8800;
+    color: #5900ff;
     font-size: 18px;
 }
 
@@ -33,13 +33,13 @@ div{
 }
 
 .botao-card{
-    background-color: #ff6500;
+    background-color: #5900ff;
     color: #ffffff;
     width: 100%;
     height: 40px;
 }
 
+
 .fundo{
     background-color: #ffffff;
 }
-
