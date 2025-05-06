@@ -1,28 +1,29 @@
 <script>
-    //var numero = prompt("digite um número")
-    //alert(numero)
-    //var numero = 10
-    //var texto = "10" + numero + "10"
-    //alert("resultado:"+texto)
-    //var numero2 = 100
-    //var multiplicacao = numero * numero2
-    //alert(multiplicacao)
-    //alert("resultado="+(10+multiplicacao+20+numero+numero2))
-    /*
+    /*var numero = prompt("digite um número")
+    alert(numero)
+    var numero = 10
+    var texto = "10" + numero + "10"
+    alert("resultado:"+texto)
+    var numero2 = 100
+    var multiplicacao = numero * numero2
+    alert(multiplicacao)
+    alert("resultado="+(10+multiplicacao+20+numero+numero2))
+    
     faça um progama que leia dois numeros 
     e digite a soma dos dois
-    */
+    
 
-    //var numero = Number (prompt("digite um número"))
-    //var numero2 = parseInt (prompt("digite um número"))
-    //alert("resultado:"+(numero+numero2))
+    var numero = Number (prompt("digite um número"))
+    var numero2 = parseInt (prompt("digite um número"))
+    alert("resultado:"+(numero+numero2))
 
-    /*
+    
     faça um progama que leia o nome
     e a idade do usuario e fale se
     ele pode dirigir votar
-    */
+    
 
+    
     var nome = prompt("digite o seu nome")
     var idade = Number (prompt("digite sua idade"))
     if (idade<16)
@@ -38,5 +39,35 @@
     {
         alert(nome+" pode dirigir e votar")
     }
+    */
+
+    //Peça para o usuário digitar um valor para peso, um valor para altura
+    //e calcule o IMC mostrando na tela o resultado de acordo com a tabela oficial
+
+    var peso = Number (prompt("digite seu peso"))
+    var altura = Number (prompt("digite sua altura"))
+    var imc = (altura * altura)/peso
+    if (imc < 18.5)
+    {
+        alert("você está abaixo do peso")
+    }
+    else if (imc>=18.5 && imc<24.9)
+    {
+        alert("você está com o peso ideal")
+    }
+    else if (imc>=25.0 && imc<29.9)
+    {
+        alert("você está com sobrepeso")
+    }
+    else if (imc>30){
+        
+
+        alert("você está com obesidade")
+    }
+    else{
+        alert("erro")
+    }
+        
+
 
 </script>
