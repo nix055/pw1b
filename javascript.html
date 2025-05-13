@@ -1,73 +1,96 @@
 <script>
-    /*var numero = prompt("digite um número")
-    alert(numero)
-    var numero = 10
-    var texto = "10" + numero + "10"
-    alert("resultado:"+texto)
-    var numero2 = 100
-    var multiplicacao = numero * numero2
-    alert(multiplicacao)
-    alert("resultado="+(10+multiplicacao+20+numero+numero2))
-    
-    faça um progama que leia dois numeros 
-    e digite a soma dos dois
-    
-
-    var numero = Number (prompt("digite um número"))
-    var numero2 = parseInt (prompt("digite um número"))
-    alert("resultado:"+(numero+numero2))
-
-    
-    faça um progama que leia o nome
-    e a idade do usuario e fale se
-    ele pode dirigir votar
-    
-
-    
-    var nome = prompt("digite o seu nome")
-    var idade = Number (prompt("digite sua idade"))
-    if (idade<16)
-    {
-        alert(nome+" não pode dirigir e nem votar")
-    }
-    else
-    if (idade<18)
-    {
-        alert(nome+" não pode dirigir mas pode votar")
-    }
-    else
-    {
-        alert(nome+" pode dirigir e votar")
-    }
+    //var numero = prompt('Digite um número')
+   // alert(numero)
+    //var numero = 10
+    //var texto = '10'+numero+'10'
+    //alert("resultado: "+texto)
+    //var numero2 = 100
+    //var multiplicacao = numero * numero2
+    //alert(multiplicacao)
+    //alert("resultado="+(10+multiplicacao+20+numero+numero2))
+    /*
+         faça um programa que peça
+         para o usuário digitar dois numeros 
+         e exiba o alerta com a soma deles
     */
+    //var numero1 = Number (prompt("Digite um número: "))
+    //var numero2 = Number (prompt("Digite outro número: "))
+    //alert( "O resultado é "+(numero1+numero2))
 
-    //Peça para o usuário digitar um valor para peso, um valor para altura
-    //e calcule o IMC mostrando na tela o resultado de acordo com a tabela oficial
-
-    var peso = Number (prompt("digite seu peso"))
-    var altura = Number (prompt("digite sua altura"))
-    var imc = (altura * altura)/peso
-    if (imc < 18.5)
+    /*
+         faça um programa que leia
+         o nome do usuário 
+         a idade e verifique
+         se ele pode dirigir e votar
+    */
+   /*var nome = prompt("Digite seu nome: ")
+   var idade = Number (prompt("Digite dua idade"))
+    if(idade>18)
     {
-        alert("você está abaixo do peso")
+        alert("O "+nome+" pode votar e dirigir")
     }
-    else if (imc>=18.5 && imc<24.9)
+    else if(idade >=16)
     {
-        alert("você está com o peso ideal")
+        alert("O "+nome+" pode votar")
     }
-    else if (imc>=25.0 && imc<29.9)
+    else
     {
-        alert("você está com sobrepeso")
+        alert("O "+nome+" não pode votar e dirigir")
+    }*/
+    /*var num = Number( prompt("digite um número: "))
+    if(num<0)
+    {
+        alert("o número "+num+" é negativo")
     }
-    else if (imc>30){
-        
-
-        alert("você está com obesidade")
+    else if(num==0)
+    {
+        alert("o número "+num+" é zero")
     }
-    else{
-        alert("erro")
+    else if(num>0)
+    {
+        alert("o número "+num+" é positivo")
+    }*/
+    /*for(var i=0; i<=512; i=i+2)
+    {
+        if(i%2==0)
+           document.write(i+"<br>")
+    }*/
+    /*var tabuada = Number(prompt("digite o numero para ver a tabuada: "))
+        for(var i=0; i<=10; i++)
+            {
+            document.write("<H1>"+i+" x "+tabuada+" = "+(tabuada*i)+"<H1>")
+            }*/
+    function meualerta(texto,numero)
+    {
+        alert(texto)
     }
-        
-
-
-</script>
+    function somar(numero1,numero2)
+    {
+        var soma = Number(numero1)+Number(numero2)
+       return(soma)
+    }
+   function CalculeASoma()
+   {
+    meualerta(somar(prompt("digite um numero"),prompt("digite outro numero")))
+   }
+    /*var resultado = somar(50,50)
+    meualerta(resultado)
+    meualerta(somar("10","11"))
+    alert(somar(20,30))
+    /*var num1 = Number(prompt("digite um numero"))
+    var num2 = Number(prompt("digite outro numero"))
+    meualerta(num1+num2)
+   /*faça uma função que
+   peça o mone do usuario
+   e imprima seu nome 
+   */
+  function nome()
+  {
+    var nome = prompt("digite seu nome: ")
+    alert("seu nome é "+nome)
+  }
+  //nome()
+    </script>
+    <button onclick="CalculeASoma()">
+    clique aqui
+    </button>
