@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade java de function</title>
+</head>
+<body>
+    <script>
+      function mostrarMensagem()
+    {
+        alert("olá pessoal, tudo bem?")
+    }
+    mostrarMensagem()
+    function cumprimentarUsuario(nome)
+    {
+        var nome = prompt("Digite seu nome: ")
+        alert("Olá, "+nome)
+    }
+    cumprimentarUsuario()
+    function multiplicacao(numero1,numero2)
+    {
+        var mult = Number(numero1)*Number(numero2)
+        alert("A multiplicação é igual a "+mult)
+    }
+    multiplicacao(prompt("digite um numero "),prompt("digite outro numero"))
+    function divisao(num1,num2)
+    {
+        var div = Number(num1)/Number(num2)
+        if(num2 == 0)
+        {
+            alert("O segundo numero não pode ser zero.")
+        }
+        else
+        {
+            alert("A divisão é igual a "+div)
+        }
+    }
+    divisao(prompt("digite um numero "),prompt("digite outro numero "))
+    </script>
+</body>
