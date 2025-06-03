@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <input type="text" name="entrada" id="entrada">
+    <button onclick=" ">
+        clique aqui
+    </button>
+    <ul id="lista">
+
+    </ul>
+    <script>
+        var numeros = []
+        for(var i = 150; i > 0; i--)
+    {
+        numeros.push(i)
+    }
+    function addItemLista()
+    {
+    var lista = document.getElementById("lista")
+    var itemlista = document.createElement('li')
+    itemlista.innerText = "Meu item criado pelo javascript"
+    lista.append(itemlista)
+    }
+    var div = document.getElementById("box")
+    var soma = 0
+    var somaimpar = 0
+    for(var i = 0; i < numeros.length; i++)
+    {
+        if(numeros [i] %2 == 0)
+        {
+            soma = soma + numeros[i]
+        }
+        else
+        {
+            somaimpar = somaimpar + numeros[i]
+        }
+    }
+    div.innerHTML = "Soma dos números pares: "+soma+'<br>'+"Soma dos impares: "+somaimpar
+    var input = document.getElementById("entrada")
+    var novaDiv = document.createElement("div")
+    novaDiv.id = "novaDiv"
+    
+    </script>
+</body>
+</html>
