@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <main>  
+        <article class="pokemon-card">
+                <section class="pokemon-image-section">
+                    <div class="pokemon-header">
+                        <button id="prevPokemon"><i class="fas fa-chevron-left"></i></button>
+                        <div class="search-input">
+                        <input type="text" id="pokemonSearch" placeholder="Digite nome ou número do Pokémon">
+                        <button id="searchPokemon"><i class="fas fa-search"></i></button>
+                        </div>
+                        <button id="nextPokemon"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="ft">
+                        <img id="pokemonImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur">
+                        <div>
+                        <h2 id="pokemonNameDisplay">Bulbasaur</h2>
+                            <div id="pokemonTypes">    
+                                <span class="type-badge grass">grama</span>
+                                <span class="type-badge poison">veneno</span>
+                            </div>  
+                        <div >
+                            <h3>Habilidades</h3>
+                            <div id="pokemonAbilities" ></br>
+                                <span>Overgrow</span>
+                                <span>Chlorophyll</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+            <div class="pokemon-content">
+                <div class="pokemon-details">
+                        <div>
+                            <p>Número</p>
+                            <p id="pokemonId">#001</p>
+                        </div>
+                        <div>
+                            <p>Altura</p>
+                            <p id="pokemonHeight">0.7 m</p>
+                        </div>
+                        <div>
+                            <p>Peso</p>
+                            <p id="pokemonWeight">6.9 kg</p>
+                        </div>
+                        <div>
+                            <p>Experiência</p>
+                            <p id="pokemonExp">64</p>
+                        </div>
+                </div>
+                <section class="pokemon-info">
+                       <div id="pokemonStats">
+                        <div class="stat-item">
+                            <div class="stat-header">
+                                <span class="stat-name">HP</span>
+                                <span class="stat-value">45</span>
+                                <div class="stat-bar">
+                                    <div class="stat-progress" style="width: 45%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-name">Ataque</span>
+                                    <span class="stat-value">49</span>
+                                    <div class="stat-bar">
+                                        <div class="stat-progress" style="width: 49%;"></div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="stat-item">
+                                    <div class="stat-header">
+                                        <span class="stat-name">Defesa</span>
+                                        <span class="stat-value">49</span>
+                                        <div class="stat-bar">
+                                            <div class="stat-progress" style="width: 49%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                            <div class="stat-header">
+                                                <span class="stat-name">Ataque Especial</span>
+                                                <span class="stat-value">65</span>
+                                            </div>
+                                            <div class="stat-bar">
+                                                <div class="stat-progress" style="width: 65%;">
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-item">
+                                                    <div class="stat-header">
+                                                        <span class="stat-name">Defesa Especial</span>
+                                                        <span class="stat-value">65</span>
+                                                        <div class="stat-bar">
+                                                        <div class="stat-progress" style="width: 65%;"></div>
+                                                    </div>
+                                                    </div>
+                                                <div class="stat-item">
+                                                    <div class="stat-header">
+                                                        <div class="set">
+                                                        <span class="stat-name">Velocidade</span> 
+                                                        <span class="stat-value">45</span>
+                                                        </div>
+                                                        <div class="stat-bar">
+                                                    <div class="stat-progress" style="width: 45%;"></div>
+                                                </div>
+                                                </div>     
+                                            </div>
+                                        </div> 
+                </section>
+            </div>
+        </article>
+
+    </main>
+
+    <script>// Variável para armazenar o Pokémon atual
+let currentPokemonId = 1;
+
+// Elementos DOM
+const pokemonNameDisplay = document.getElementById('pokemonNameDisplay');
+const pokemonTypes = document.getElementById('pokemonTypes');
+const pokemonImage = document.getElementById('pokemonImage');
+const pokemonId = document.getElementById('pokemonId');
+const pokemonHeight = document.getElementById('pokemonHeight');
+const pokemonWeight = document.getElementById('pokemonWeight');
+const pokemonExp = document.getElementById('pokemonExp');
+const pokemonAbilities = document.getElementById('pokemonAbilities');
+const pokemonStats = document.getElementById('pokemonStats');
+
+// Botões de navegação
+const prevPokemonBtn = document.getElementById('prevPokemon');
+const nextPokemonBtn = document.getElementById('nextPokemon');
+
+// Elementos de pesquisa unificada
+const searchPokemonBtn = document.getElementById('searchPokemon');
+const pokemonSearchInput = document.getElementById('pokemonSearch');
+
+// Função para buscar dados do Pokémon na PokeAPI
+async function fetchPokemonData(idOrName) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${idOrName}`);
+        if (!response.ok) {
+            throw new Error('Pokémon não encontrado');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Erro ao buscar Pokémon:', error);
+        alert('Pokémon não encontrado! Por favor, tente outro nome ou número.');
+        return null;
+    }
+}
+
+// Função para atualizar a interface com os dados do Pokémon
+function updatePokemonUI(pokemon) {
+    if (!pokemon) return;
+    
+    // Atualizar ID do Pokémon atual
+    currentPokemonId = pokemon.id;
+    
+    // Nome e número
+    pokemonNameDisplay.textContent = pokemon.name;
+    pokemonId.textContent = `#${pokemon.id.toString().padStart(3, '0')}`;
+    
+    // Tipos
+    pokemonTypes.innerHTML = '';
+    pokemon.types.forEach(type => {
+        const typeElement = document.createElement('span');
+        typeElement.className = `type-badge ${type.type.name}`;
+        typeElement.textContent = type.type.name;
+        pokemonTypes.appendChild(typeElement);
+    });
+    
+    // Imagem
+    pokemonImage.src = pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default;
+    pokemonImage.alt = pokemon.name;
+    
+    // Altura e peso (convertendo de decímetros para metros e hectogramas para quilogramas)
+    pokemonHeight.textContent = `${(pokemon.height / 10).toFixed(1)} m`;
+    pokemonWeight.textContent = `${(pokemon.weight / 10).toFixed(1)} kg`;
+    
+    // Experiência base
+    pokemonExp.textContent = pokemon.base_experience || 'N/A';
+    
+    // Habilidades
+    pokemonAbilities.innerHTML = '';
+    pokemon.abilities.forEach(ability => {
+        const abilityElement = document.createElement('span');
+        abilityElement.className = 'ability';
+        abilityElement.textContent = ability.ability.name.replace('-', ' ');
+        pokemonAbilities.appendChild(abilityElement);
+    });
+    
+  pokemonStats.innerHTML = '';
+    const statNames = {
+        hp: 'HP',
+        attack: 'Ataque',
+        defense: 'Defesa',
+        'special-attack': 'Ataque Especial',
+        'special-defense': 'Defesa Especial',
+        speed: 'Velocidade'
+    };
+    
+    pokemon.stats.forEach(stat => {
+        const statItem = document.createElement('div');
+        statItem.className = 'stat-item';
+        
+        const statHeader = document.createElement('div');
+        statHeader.className = 'stat-header';
+        
+        const statName = document.createElement('span');
+        statName.className = 'stat-name';
+        statName.textContent = statNames[stat.stat.name] || stat.stat.name;
+        
+        const statValue = document.createElement('span');
+        statValue.className = 'stat-value';
+        statValue.textContent = stat.base_stat;
+        
+        statHeader.appendChild(statName);
+        statHeader.appendChild(statValue);
+        
+        const statBar = document.createElement('div');
+        statBar.className = 'stat-bar';
+        
+        const statProgress = document.createElement('div');
+        statProgress.className = 'stat-progress';
+        statProgress.style.width = `${Math.min(100, stat.base_stat)}%`;
+        
+        statBar.appendChild(statProgress);
+        
+        statItem.appendChild(statHeader);
+        statItem.appendChild(statBar);
+        
+        pokemonStats.appendChild(statItem);
+    });
+}
+// Função para carregar um Pokémon por ID ou nome
+async function loadPokemon(idOrName) {
+    const pokemon = await fetchPokemonData(idOrName);
+    if (pokemon) {
+        updatePokemonUI(pokemon);
+    }
+}
+
+// Event listeners para navegação
+prevPokemonBtn.addEventListener('click', () => {
+    if (currentPokemonId > 1) {
+        loadPokemon(currentPokemonId - 1);
+    }
+});
+
+nextPokemonBtn.addEventListener('click', () => {
+    loadPokemon(currentPokemonId + 1);
+});
+
+// Event listener para pesquisa unificada
+searchPokemonBtn.addEventListener('click', () => {
+    const searchTerm = pokemonSearchInput.value.trim();
+    if (searchTerm) {
+        loadPokemon(searchTerm);
+    }
+});
+
+// Event listener para tecla Enter na pesquisa
+pokemonSearchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const searchTerm = pokemonSearchInput.value.trim();
+        if (searchTerm) {
+            loadPokemon(searchTerm);
+        }
+    }
+});
+
+// Carregar o Pokémon inicial ao abrir a página
+loadPokemon(currentPokemonId);
+</script>
+</body>
+</html>
