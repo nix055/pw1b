@@ -196,7 +196,7 @@ h1 {
 }
 
 .stat-progress {
-    background: linear-gradient(90deg, #4f8cfe 0%, #9b0074 100%); 
+    background: #9b0074; 
     border-radius: 0.25rem; 
     height: 10px;
 }
